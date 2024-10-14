@@ -74,7 +74,7 @@ export default {
 
       // Realizar la solicitud al backend con Axios
       axios
-        .get('http://localhost:8080/reporte/filtrar', {
+        .get('https://easygoing-analysis-production.up.railway.app/reporte/filtrar', {
           params: {
             fechaInicial: this.fechaInicio,
             fechaFin: this.fechaFin

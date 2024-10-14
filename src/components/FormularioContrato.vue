@@ -48,9 +48,9 @@ export default {
             const empleado = JSON.parse(localStorage.getItem('empleado'));
             this.contrato.empleado = empleado;
 
-            axios.post('http://localhost:8080/contratos', this.contrato)
+            axios.post('https://easygoing-analysis-production.up.railway.app/contratos', this.contrato)
             .then(() => {
-                this.$router.push('/'); //Regresa a la lista de clientes luego de guardar
+                this.$router.push('/lista-contratos'); //Regresa a la lista de clientes luego de guardar
             })
             .catch( error => {
                 console.error(error);

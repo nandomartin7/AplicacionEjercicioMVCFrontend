@@ -103,7 +103,7 @@ export default{
     },
     methods: {
         fetchContratos() {
-            axios.get('http://localhost:8080/contratos')
+            axios.get('https://easygoing-analysis-production.up.railway.app/contratos')
             .then(response => {
                 this.contratos = response.data;
             })
@@ -113,7 +113,7 @@ export default{
         },
         buscarContrato(){
             if (this.searchId){
-                axios.get(`http://localhost:8080/contratos/${this.searchId}`)
+                axios.get(`https://easygoing-analysis-production.up.railway.app/contratos/${this.searchId}`)
                 .then(response => {
                     this.contratos = [response.data];
                 })
@@ -132,7 +132,7 @@ export default{
             this.contratoEditando = { ...contrato}; //Clonar el contrato para editarlo
         },
         guardarCambios() {
-            axios.put(`http://localhost:8080/contratos/${this.contratoEditando.cedula}`, this.contratoEditando)
+            axios.put(`https://easygoing-analysis-production.up.railway.app/contratos/${this.contratoEditando.cedula}`, this.contratoEditando)
             .then(response => {
                 // Actualizar el contrato en la lista
                 this.fetchContratos();
@@ -152,10 +152,10 @@ export default{
         },
         cerrarSesion() {
             localStorage.removeItem('token'); // Eliminar el token de localStorage
-            this.$router.push('/'); // Redirigir a la página de login
+            this.$router.push('/login'); // Redirigir a la página de login
         },
         eliminarContrato(cedula) {
-            axios.delete(`http://localhost:8080/contratos/${cedula}`)
+            axios.delete(`https://easygoing-analysis-production.up.railway.app/contratos/${cedula}`)
             .then(() => {
                 this.contratos = this.contratos.filter(contrato => contrato.cedula !== cedula);
             })
